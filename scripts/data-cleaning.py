@@ -14,4 +14,6 @@ one_hot = pd.get_dummies(df_exploded['dom_interest'])
 
 df_encoded = df_exploded[['response_id']].join(one_hot).groupby('response_id', as_index=False).max()
 
-print(df_encoded.head())
+combined = combined.drop(columns=['dom_interest']).merge(df_encoded, on='response_id', how='left')
+
+print(combined.head())
