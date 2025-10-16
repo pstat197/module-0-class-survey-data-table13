@@ -16,4 +16,6 @@ df_encoded = df_exploded[['response_id']].join(one_hot).groupby('response_id', a
 
 combined = combined.drop(columns=['dom_interest']).merge(df_encoded, on='response_id', how='left')
 
+combined = combined.drop(columns='A mix of engineering/developing things that greatly help people (large, tangible), progressive, or state-of-art results, without necessarily needing expert domain expertise.')
 print(combined.head())
+print(combined.columns)
