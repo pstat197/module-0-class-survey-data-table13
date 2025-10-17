@@ -19,3 +19,5 @@ combined = combined.drop(columns=['dom_interest']).merge(df_encoded, on='respons
 combined = combined.drop(columns='A mix of engineering/developing things that greatly help people (large, tangible), progressive, or state-of-art results, without necessarily needing expert domain expertise.')
 print(combined.head())
 print(combined.columns)
+
+#combined.to_csv("data/combined.csv", index=False)
