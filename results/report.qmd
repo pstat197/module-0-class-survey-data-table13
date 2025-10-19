@@ -23,7 +23,7 @@ library(tidyverse)
 
 ## Executive summary
 
-Write a one-paragraph abstract summarizing what you did and your findings. It need not be comprehensive; try to highlight the most important or interesting outcomes.
+Our project focused on understanding how domain interests and the number of upper division courses taken relates to comfort in math, statistics, and programming. First, we looked at whether domain interest plays a role in comfort levels. After running a Kruskal-Wallis test, no statistically significant difference in comfort levels was found among domains. We then looked at whether diversity of interests affects comfort levels using an ordered logistic regression model and a decision tree. No predictive relationships were found between the number of interested domains and comfort levels. Finally, we examined the relationship between upper division coursework and comfort through k-means clustering, seeking to group these features. We found that students who have taken more courses tended to be grouped more with higher comfort levels, indicating that more coursework could improve comfort with math, statistics, and programming. Ultimately, while domain interest has little to no relationship with comfort, more coursework is associated with higher comfort.
 
 ## Data description
 
