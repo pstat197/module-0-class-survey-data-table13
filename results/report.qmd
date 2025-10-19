@@ -63,7 +63,7 @@ We sought to understand what factors affect comfort levels in math, statistics, 
 
 2. In addition, does the number of interested domains relate to comfort levels? 
 
-3.Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?
+3. Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?
 
 ## Findings
 
