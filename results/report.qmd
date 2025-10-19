@@ -59,9 +59,11 @@ knitr::include_graphics("Feature Correlations.png")
 
 We sought to understand what factors affect comfort levels in math, statistics, and programming. Our analysis addressed three different questions:
 
-1\. Does domain interest relate to comfort levels?
+1. Does domain interest relate to comfort levels?
 
-2.In addition, does the number of interested domains relate to comfort levels? 3.Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?
+2. In addition, does the number of interested domains relate to comfort levels? 
+
+3.Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?
 
 ## Findings
 
@@ -71,7 +73,7 @@ No statistically significant differences were found in comfort across domains, i
 
 Exploring the second question, we used an ordinal logistic regression model to test the null hypothesis that the number of domains a student is interested in has no association with their comfort (1–5) in programming, math, or statistics.
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("Findings_table1.png")
 ```
 
@@ -85,7 +87,7 @@ To answer our question about grouping students by the number of upper division c
 
 Using 5 cluster centroids, we grouped students who'd taken 6+ upper division courses into 2 groups of comfortability between 3.5 and 4 and one above 4. Then for students who'd taken 3-5 upper division courses, we discovered 2 groups of comfortability between 3 and 3.5 and the other above 4. Thus, on average, the clustering results show that we can group students who've taken more upper division courses into a category of relatively higher comfortability in math, stats, and programming. This intuitively makes sense, because as students complete more upper division coursework in math, statistics, and programming they would tend to feel more comfortable with those subjects. It’s important to note that the clusters we’ve found do not imply causation, and that the silhouette score of the clustering, 0.29, was relatively close to 0, not indicating the strongest clustering configuration. Furthermore, correlations between the number of upper division courses taken and comfortability were relatively low (the highest being 0.38 between updv.num and statistics comfort).
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("Findings_table2.png")
 
 ```
