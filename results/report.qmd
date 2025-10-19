@@ -14,8 +14,6 @@ execute:
   cache: true
 ---
 
-Use this as a template. Keep the headers and remove all other text. Overall, your report may be quite short. When it is complete, render and then push changes to your team repository.
-
 ```{r}
 # load any other packages and read data here
 library(tidyverse)
@@ -26,12 +24,13 @@ library(tidyverse)
 Our project focused on understanding how domain interests and the number of upper division courses taken relates to comfort in math, statistics, and programming. First, we looked at whether domain interest plays a role in comfort levels. After running a Kruskal-Wallis test, no statistically significant difference in comfort levels was found among domains. We then looked at whether diversity of interests affects comfort levels using an ordered logistic regression model and a decision tree. No predictive relationships were found between the number of interested domains and comfort levels. Finally, we examined the relationship between upper division coursework and comfort through k-means clustering, seeking to group these features. We found that students who have taken more courses tended to be grouped more with higher comfort levels, indicating that more coursework could improve comfort with math, statistics, and programming. Ultimately, while domain interest has little to no relationship with comfort, more coursework is associated with higher comfort.
 
 ## Data description
+
 Data were obtained by Google Forms survey that was administered to all students in PSTAT 197A during the Fall of 2025. The data was then split into two tables: background_clean and interest_clean. For our project, we combined the two tables and one hot encoded the individual domains. The variables in the final table are as follows:
 
 ## Data Description
 
 | Variable | Description |
-|---|---|
+|------------------------------------|------------------------------------|
 | response_id | Unique IDs to order observations (students). |
 | prog.prof | Self-reported proficiency in programming (beg, int, adv). |
 | prog.comf | Self-reported comfort in programming (1–5). |
@@ -45,28 +44,25 @@ Data were obtained by Google Forms survey that was administered to all students 
 | **Course columns (boolean)** | Whether a student has taken each course. Columns: PSTAT100, PSTAT115, PSTAT120, PSTAT122, PSTAT126, PSTAT131, PSTAT160, PSTAT174, CS9, CS16, LING104, LING110, LING111, CS130, CS165, ECON145, PSTAT127, PSTAT134, CS5. |
 | **Domain interest columns (boolean)** | Whether the student is interested in each domain. Columns: Biology, Chemistry, Ecology, Economics / Accounting, Entertainment, Environmental science, Music & Audio, Neuroscience, Psychology, Public health, Social or political science, Software development, Technology, media/musical technology. |
 
-
-
-
-
 Summary statistics for background-clean.csv (used for clustering analysis):
+
 ```{r}
 knitr::include_graphics("Summary Stats.png")
 ```
+
 Feature correlations:
+
 ```{r}
 knitr::include_graphics("Feature Correlations.png")
 ```
 
-
-
 ## Questions of interest
 
 We sought to understand what factors affect comfort levels in math, statistics, and programming. Our analysis addressed three different questions:
-  1. Does domain interest relate to comfort levels? 
-  2.In addition, does the number of interested domains relate to comfort levels?
-  3.Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?
 
+1\. Does domain interest relate to comfort levels?
+
+2.In addition, does the number of interested domains relate to comfort levels? 3.Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?
 
 ## Findings
 
@@ -80,13 +76,13 @@ Exploring the second question, we used an ordinal logistic regression model to t
 knitr::include_graphics("Findings_table1.png")
 ```
 
-The odds ratios for all three subjects were near 1 (programming/statistics slightly < 1), all 95% confidence intervals included 1, and all q values (FDR-adjusted (Benjamini–Hochberg) p-values) were > 0.05. Thus, we found no significant evidence of the alternative and we did not detect a statistically significant association between the number of interested domains count and comfort levels in any subject.
+The odds ratios for all three subjects were near 1 (programming/statistics slightly \< 1), all 95% confidence intervals included 1, and all q values (FDR-adjusted (Benjamini–Hochberg) p-values) were \> 0.05. Thus, we found no significant evidence of the alternative and we did not detect a statistically significant association between the number of interested domains count and comfort levels in any subject.
 
-[insert bahaar’s conclusions here]
+\[insert bahaar’s conclusions here\]
 
 These results are consistent with Question 1, which also found no statistically significant link between domain interest and comfort in programming, math, or statistics.
 
-To answer our question about grouping students by the number of upper division courses they’ve taken and their comfortability in math, statistics, and programming: 
+To answer our question about grouping students by the number of upper division courses they’ve taken and their comfortability in math, statistics, and programming:
 
 Using 5 cluster centroids, we grouped students who'd taken 6+ upper division courses into 2 groups of comfortability between 3.5 and 4 and one above 4. Then for students who'd taken 3-5 upper division courses, we discovered 2 groups of comfortability between 3 and 3.5 and the other above 4. Thus, on average, the clustering results show that we can group students who've taken more upper division courses into a category of relatively higher comfortability in math, stats, and programming. This intuitively makes sense, because as students complete more upper division coursework in math, statistics, and programming they would tend to feel more comfortable with those subjects. It’s important to note that the clusters we’ve found do not imply causation, and that the silhouette score of the clustering, 0.29, was relatively close to 0, not indicating the strongest clustering configuration. Furthermore, correlations between the number of upper division courses taken and comfortability were relatively low (the highest being 0.38 between updv.num and statistics comfort).
 
@@ -94,4 +90,3 @@ Using 5 cluster centroids, we grouped students who'd taken 6+ upper division cou
 knitr::include_graphics("Findings_table2.png")
 
 ```
-

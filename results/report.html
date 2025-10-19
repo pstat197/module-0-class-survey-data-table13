@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Lucas Childs, Minu , Nathan , Anna __, Bahaar Ahuja">
+<meta name="author" content="Lucas Childs, Minu Pabbathi, Nathan Kim, Anna Liang, Bahaar Ahuja">
 <meta name="dcterms.date" content="2025-10-19">
 
 <title>Analysis of class surveys</title>
@@ -59,7 +59,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Lucas Childs, Minu <strong>, Nathan </strong>, Anna __, Bahaar Ahuja </p>
+             <p>Lucas Childs, Minu Pabbathi, Nathan Kim, Anna Liang, Bahaar Ahuja </p>
           </div>
   </div>
     
@@ -78,30 +78,104 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Use this as a template. Keep the headers and remove all other text. Overall, your report may be quite short. When it is complete, render and then push changes to your team repository.</p>
 <section id="executive-summary" class="level2">
 <h2 class="anchored" data-anchor-id="executive-summary">Executive summary</h2>
-<p>Write a one-paragraph abstract summarizing what you did and your findings. It need not be comprehensive; try to highlight the most important or interesting outcomes.</p>
-<p><strong>Lucas:</strong> Half the class has taken 9+ upper division courses. Correlation matrix shows that there are low correlations between upper division course numbers and comfortability in math, stats, and programming, the highest being 0.38 between course number and stats. Clustering: using 5 cluster centroids, we grouped students who’d taken 6+ upper division courses into 2 groups of comfortability between 3.5 and 4 and one above 4. Then for students who’d taken 3-5 upper division courses, we discovered 2 groups of comfortability between 3 and 3.5 and the other above 4. Thus, on average, the clustering results show that we can group students who’ve taken more upper division courses into a category of relatively higher comfortability in math, stats, and programming.</p>
+<p>Our project focused on understanding how domain interests and the number of upper division courses taken relates to comfort in math, statistics, and programming. First, we looked at whether domain interest plays a role in comfort levels. After running a Kruskal-Wallis test, no statistically significant difference in comfort levels was found among domains. We then looked at whether diversity of interests affects comfort levels using an ordered logistic regression model and a decision tree. No predictive relationships were found between the number of interested domains and comfort levels. Finally, we examined the relationship between upper division coursework and comfort through k-means clustering, seeking to group these features. We found that students who have taken more courses tended to be grouped more with higher comfort levels, indicating that more coursework could improve comfort with math, statistics, and programming. Ultimately, while domain interest has little to no relationship with comfort, more coursework is associated with higher comfort.</p>
 </section>
 <section id="data-description" class="level2">
 <h2 class="anchored" data-anchor-id="data-description">Data description</h2>
-<p>Write a brief description of the dataset. Your description should cover how data were obtained, sample characteristics, and measurements taken. It does not need to be exhaustive, but sufficiently detailed to convey a clear high-level understanding of the dataset. You can utilize bullet points or tables if you feel it would help improve clarity.</p>
-<p>Data were obtained by Google Forms survey that was administered to all students in PSTAT 197A during the Fall of 2025.</p>
+<p>Data were obtained by Google Forms survey that was administered to all students in PSTAT 197A during the Fall of 2025. The data was then split into two tables: background_clean and interest_clean. For our project, we combined the two tables and one hot encoded the individual domains. The variables in the final table are as follows:</p>
+</section>
+<section id="data-description-1" class="level2">
+<h2 class="anchored" data-anchor-id="data-description-1">Data Description</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>response_id</td>
+<td>Unique IDs to order observations (students).</td>
+</tr>
+<tr class="even">
+<td>prog.prof</td>
+<td>Self-reported proficiency in programming (beg, int, adv).</td>
+</tr>
+<tr class="odd">
+<td>prog.comf</td>
+<td>Self-reported comfort in programming (1–5).</td>
+</tr>
+<tr class="even">
+<td>math.prof</td>
+<td>Self-reported proficiency in math (beg, int, adv).</td>
+</tr>
+<tr class="odd">
+<td>math.comf</td>
+<td>Self-reported comfort in math (1–5).</td>
+</tr>
+<tr class="even">
+<td>stat.prof</td>
+<td>Self-reported proficiency in statistics (beg, int, adv).</td>
+</tr>
+<tr class="odd">
+<td>stat.comf</td>
+<td>Self-reported comfort in statistics (1–5).</td>
+</tr>
+<tr class="even">
+<td>updv.num</td>
+<td>Number of upper-division classes taken (0–2, 3–5, 6–8, 9+).</td>
+</tr>
+<tr class="odd">
+<td>dom_tf</td>
+<td>Whether the student has domain specialization (Yes, No, Unsure).</td>
+</tr>
+<tr class="even">
+<td>rsrch_or_ind</td>
+<td>Preference for research or industry project (industry, research, no preference).</td>
+</tr>
+<tr class="odd">
+<td><strong>Course columns (boolean)</strong></td>
+<td>Whether a student has taken each course. Columns: PSTAT100, PSTAT115, PSTAT120, PSTAT122, PSTAT126, PSTAT131, PSTAT160, PSTAT174, CS9, CS16, LING104, LING110, LING111, CS130, CS165, ECON145, PSTAT127, PSTAT134, CS5.</td>
+</tr>
+<tr class="even">
+<td><strong>Domain interest columns (boolean)</strong></td>
+<td>Whether the student is interested in each domain. Columns: Biology, Chemistry, Ecology, Economics / Accounting, Entertainment, Environmental science, Music &amp; Audio, Neuroscience, Psychology, Public health, Social or political science, Software development, Technology, media/musical technology.</td>
+</tr>
+</tbody>
+</table>
+<p>Summary statistics for background-clean.csv (used for clustering analysis):</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Summary%20Stats.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Feature correlations:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Feature%20Correlations.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="questions-of-interest" class="level2">
 <h2 class="anchored" data-anchor-id="questions-of-interest">Questions of interest</h2>
-<p>Indicate the questions your analysis addresses. These should map one-to-one to your findings. Don’t include questions you didn’t answer or questions you started with and refined later. If you would rather frame them as goals or tasks rather than questions that is okay; just modify the header appropriately. However you frame what you’ve done, you may only have two or three items; that is fine. Provide an itemized or numbered list so that the reader can easily identify your objectives.</p>
-<p>For example:</p>
-<blockquote class="blockquote">
-<p><em>We sought to understand the relationship between coursework preparation, self-assessed technical abilities, and comfort level with technical skills. We also sought to understand whether the relationships differed depending on having had prior research experience. Our analysis addressed three questions:</em></p>
-<ol type="1">
-<li><em>How should the coursework histories of students in the class be ordered from less preparation to extensive preparation?</em></li>
-<li><em>Is coursework preparation associated with increased self-assessed technical skill and comfort within the sample?</em></li>
-<li><em>Does prior research experience appear to be a substitute for coursework preparation with respect to self-assessed technical skill and comfort?</em></li>
-</ol>
-</blockquote>
-<p>Notice that the questions are precise but not overly technical.</p>
+<p>We sought to understand what factors affect comfort levels in math, statistics, and programming. Our analysis addressed three different questions:</p>
+<p>1. Does domain interest relate to comfort levels?</p>
+<p>2.In addition, does the number of interested domains relate to comfort levels? 3.Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?</p>
 </section>
 <section id="findings" class="level2">
 <h2 class="anchored" data-anchor-id="findings">Findings</h2>
