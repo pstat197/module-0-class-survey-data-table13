@@ -49,8 +49,28 @@ Notice that the questions are precise but not overly technical.
 
 ## Findings
 
-Summarize your results. Don't try to explain every step you took; focus instead on providing the main data analytic outputs -- tables and figures -- and explaining clearly what they show. Clarify any important decisions you made in obtaining them. You can display codes if you like but it is not necessary.
+When examining the relationship between domain interests and comfort levels, we found that those most comfortable with programming tend to be interested in ecology, biology, economics/accounting. Comfort with math is most associated with interest in economics/accounting, music & audio, and public health. Finally, those most comfortable with statistics are interested in music & audio, biology, and public health.
 
-### Links
+No statistically significant differences were found in comfort across domains, implying that there is no connection between domain interest and comfort in math, programming, and stats. This could be because students in the capstone program are already comfortable in these fields and likely apply because they have experience in them.
 
-To include any hyperlinks, use `[display text](url)` .
+Exploring the second question, we used an ordinal logistic regression model to test the null hypothesis that the number of domains a student is interested in has no association with their comfort (1–5) in programming, math, or statistics.
+
+```{r}
+knitr::include_graphics("Findings_table1.png")
+```
+
+The odds ratios for all three subjects were near 1 (programming/statistics slightly < 1), all 95% confidence intervals included 1, and all q values (FDR-adjusted (Benjamini–Hochberg) p-values) were > 0.05. Thus, we found no significant evidence of the alternative and we did not detect a statistically significant association between the number of interested domains count and comfort levels in any subject.
+
+[insert bahaar’s conclusions here]
+
+These results are consistent with Question 1, which also found no statistically significant link between domain interest and comfort in programming, math, or statistics.
+
+To answer our question about grouping students by the number of upper division courses they’ve taken and their comfortability in math, statistics, and programming: 
+
+Using 5 cluster centroids, we grouped students who'd taken 6+ upper division courses into 2 groups of comfortability between 3.5 and 4 and one above 4. Then for students who'd taken 3-5 upper division courses, we discovered 2 groups of comfortability between 3 and 3.5 and the other above 4. Thus, on average, the clustering results show that we can group students who've taken more upper division courses into a category of relatively higher comfortability in math, stats, and programming. This intuitively makes sense, because as students complete more upper division coursework in math, statistics, and programming they would tend to feel more comfortable with those subjects. It’s important to note that the clusters we’ve found do not imply causation, and that the silhouette score of the clustering, 0.29, was relatively close to 0, not indicating the strongest clustering configuration. Furthermore, correlations between the number of upper division courses taken and comfortability were relatively low (the highest being 0.38 between updv.num and statistics comfort).
+
+```{r}
+knitr::include_graphics("Findings_table2.png")
+
+```
+
