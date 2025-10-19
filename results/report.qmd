@@ -1,6 +1,5 @@
 ---
 title: "Analysis of class surveys"
-subtitle: "If you want a subtitle put it here"
 author: "Lucas Childs, Minu Pabbathi, Nathan Kim, Anna Liang, Bahaar Ahuja"
 date: last-modified
 published-title: "Updated"
