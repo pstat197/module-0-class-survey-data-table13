@@ -1,7 +1,7 @@
 ---
 title: "Analysis of class surveys"
 subtitle: "If you want a subtitle put it here"
-author: "Lucas Childs, Minu __, Nathan __, Anna __, Bahaar __"
+author: "Lucas Childs, Minu __, Nathan __, Anna __, Bahaar Ahuja"
 date: last-modified
 published-title: "Updated"
 editor: visual
