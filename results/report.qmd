@@ -4,7 +4,7 @@ author: "Lucas Childs, Minu Pabbathi, Nathan Kim, Anna Liang, Bahaar Ahuja"
 date: last-modified
 published-title: "Updated"
 editor: visual
-format: pdf
+format: html
 code-copy: true
 execute:
   message: false
