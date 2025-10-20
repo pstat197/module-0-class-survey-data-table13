@@ -91,3 +91,23 @@ Using 5 cluster centroids, we grouped students who'd taken 6+ upper division cou
 knitr::include_graphics("Findings_table2.png")
 
 ```
+
+## Conclusion 
+
+Overall, our analysis found that domain interest alone does not significantly relate to students’ comfort levels in programming, math, or statistics. Both the Kruskal–Wallis test and the ordinal logistic regression provided no evidence of meaningful differences or associations. Additionally, the decision tree model using domain diversity scores showed poor predictive performance, further supporting the conclusion that the breadth of students’ interests does not strongly influence comfort.
+
+However, we did observe a clearer pattern when examining upper-division coursework: students who had completed more upper-division classes tended to cluster in groups with higher comfort levels across all three subjects. Although these results are not causal, they suggest that taking more advanced coursework is associated with increased comfort in technical domains, which aligns with intuitive expectations about skill development over time.
+
+## Limitations 
+
+Our analysis is based on self-reported survey data from a single class cohort, which may introduce biases in comfort ratings and domain interest reporting. The sample size is also limited, which may reduce statistical power and make it harder to detect smaller effects. Additionally, our models were intentionally kept simple (e.g., shallow decision trees, basic clustering), so more complex modeling techniques might uncover additional nuances.
+
+## Next Steps
+
+Future analyses could explore these relationships more deeply by:
+
+1.  Collecting longitudinal data to examine how comfort evolves over time with coursework.
+2.  Expanding the sample size to include students from multiple cohorts or departments to increase generalizability.
+3.  Exploring interaction effects between domain interest and coursework, for example, whether domain alignment with coursework affects comfort differently.
+4.  Testing more advanced predictive models (e.g., random forests or gradient boosting) to assess whether nonlinear or interaction effects improve predictive power.
+5.  Incorporating qualitative data, such as interviews or open-ended survey responses, to better understand why some students feel more or less comfortable in these subjects.
