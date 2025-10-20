@@ -59,11 +59,11 @@ knitr::include_graphics("Feature Correlations.png")
 
 We sought to understand what factors affect comfort levels in math, statistics, and programming. Our analysis addressed three different questions:
 
-1. Does domain interest relate to comfort levels?
+1.  Does domain interest relate to comfort levels?
 
-2. In addition, does the number of interested domains relate to comfort levels? 
+2.  In addition, does the number of interested domains relate to comfort levels?
 
-3. Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?
+3.  Can we group students based on the number of upper division courses they’ve taken and their comfortability in math, stats, and programming?
 
 ## Findings
 
@@ -79,7 +79,7 @@ knitr::include_graphics("Findings_table1.png")
 
 The odds ratios for all three subjects were near 1 (programming/statistics slightly \< 1), all 95% confidence intervals included 1, and all q values (FDR-adjusted (Benjamini–Hochberg) p-values) were \> 0.05. Thus, we found no significant evidence of the alternative and we did not detect a statistically significant association between the number of interested domains count and comfort levels in any subject.
 
-\[insert bahaar’s conclusions here\]
+To explore whether the number of domains a student is interested in predicts their comfort in programming, math, and statistics, I created a Domain Diversity Score (DDS) by counting unique domains per student and computed a Composite Comfort Index (CCI) as the average of their comfort ratings across the three subjects. I then trained a Decision Tree Regressor to model the relationship between DDS and CCI. While the model achieved a moderate R² of 0.278 on the training set, the test R² was −0.394, indicating poor generalization and performance worse than predicting the mean. The RMSE on the test set was approximately 0.72 comfort units. A visualization of actual versus predicted values showed a largely flat prediction line, suggesting little to no predictive power. Overall, these results indicate that the number of domains a student is interested in does not meaningfully predict their comfort level in programming, math, or statistics.
 
 These results are consistent with Question 1, which also found no statistically significant link between domain interest and comfort in programming, math, or statistics.
 
